@@ -7,7 +7,7 @@
   <meta name="description" content="Carillas de porcelana E-MAX con flujo digital y escáner intraoral 3D. Resultados naturales y duraderos en solo 2 sesiones. Tlalnepantla, CDMX." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
   <style>
     :root {
       --purple: #9B59B6;
@@ -195,7 +195,20 @@
       font-weight: 500;
       line-height: 1.4;
     }
-    .hero-offer strong { color: var(--gold); font-size: 22px; display: block; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+    .hero-offer strong {
+      color: var(--gold);
+      font-family: 'Bebas Neue', 'Inter', sans-serif;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    @media (max-width: 420px) {
+      .hero-offer strong { font-size: 40px; letter-spacing: 2px; }
+    }
 
     /* PROPUESTA DE VALOR */
     .value-card {
