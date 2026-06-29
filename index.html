@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Caty | Estética Dental</title>
+  <meta name="description" content="Carillas de porcelana E-MAX con flujo digital y escáner intraoral 3D. Resultados naturales y duraderos en solo 2 sesiones. Tlalnepantla, CDMX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --purple: #9B59B6;
+      --purple-dark: #6C3483;
+      --purple-soft: #F4ECF7;
+      --gold: #C9A55A;
+      --text: #2D2D2D;
+      --muted: #6B6B6B;
+      --border: #E8E8E8;
+      --bg: #FFFFFF;
+      --black: #000000;
+      --shadow-card: 0 6px 24px rgba(108, 52, 131, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER FIJO */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand img { height: 38px; width: auto; }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .brand-text strong { font-size: 13px; color: var(--purple-dark); letter-spacing: 0.3px; }
+    .brand-text span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--black);
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.95; }
+    .btn-full { width: 100%; padding: 16px 20px; }
+    .btn-arrow::after { content: '›'; font-size: 18px; line-height: 1; margin-left: 2px; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.45);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+
+    /* LOCATION BAR */
+    .location-bar {
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .location-bar .pin { color: var(--purple); }
+
+    /* SECCIONES */
+    section { padding: 56px 0; }
+    .section-purple {
+      background: linear-gradient(180deg, var(--purple) 0%, var(--purple-dark) 100%);
+      color: #fff;
+    }
+    .section-soft { background: var(--purple-soft); }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-purple .section-label { color: var(--gold); }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; color: inherit; }
+    h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.5px; }
+    h2 { font-size: clamp(28px, 4.5vw, 40px); line-height: 1.15; letter-spacing: -0.3px; }
+    h3 { font-size: clamp(20px, 3vw, 26px); line-height: 1.25; }
+    h2 em, h1 em { font-style: italic; color: var(--purple); }
+    .section-purple h2 em { color: var(--gold); }
+    .center { text-align: center; }
+
+    /* HERO */
+    .hero { padding: 40px 0 56px; }
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      background: #fff;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #f5e9f7 0%, #e8d5ee 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple-dark);
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(108, 52, 131, 0.35);
+    }
+    .placeholder-label {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1.5px dashed currentColor;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.5);
+    }
+    .hero-body {
+      padding: 32px 24px 36px;
+      text-align: center;
+    }
+    .hero-body h1 { margin-bottom: 18px; }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .hero-promise {
+      display: inline-block;
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 22px;
+    }
+    .hero-offer {
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+      color: #fff;
+      padding: 18px 22px;
+      border-radius: 16px;
+      margin: 22px 0 24px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .hero-offer strong { color: var(--gold); font-size: 22px; display: block; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+
+    /* PROPUESTA DE VALOR */
+    .value-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+    .value-card p {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .value-card p strong { color: var(--purple-dark); font-weight: 600; }
+    .value-cta {
+      margin-top: 24px;
+      display: inline-block;
+      color: var(--purple-dark);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 4px;
+    }
+
+    /* STEP HEADER */
+    .step-num {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* CASOS DE EXITO */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .case-cell {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #f5e9f7, #ead7f0);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple-dark);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px dashed rgba(108, 52, 131, 0.3);
+      text-align: center;
+      padding: 6px;
+    }
+    .disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 22px;
+      font-style: italic;
+    }
+
+    /* VIDEO METODO */
+    .video-card {
+      margin-top: 28px;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #2d1638, #6C3483);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(108, 52, 131, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .play-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+    .play-circle::after {
+      content: '';
+      width: 0; height: 0;
+      border-left: 22px solid var(--purple-dark);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 6px;
+    }
+    .video-card .placeholder-label {
+      position: absolute;
+      bottom: 18px;
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.25);
+    }
+
+    /* OFERTA / PACKS */
+    .packs-intro { text-align: center; margin-bottom: 36px; }
+    .pack-card {
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .pack-card.featured {
+      border: 2px solid var(--gold);
+    }
+    .pack-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(201, 165, 90, 0.35);
+    }
+    .pack-photo {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #f5e9f7, #d9c0e3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple-dark);
+    }
+    .pack-body { padding: 30px 26px 32px; }
+    .pack-eyebrow {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .pack-title { margin-bottom: 18px; font-size: 26px; }
+    .pack-includes {
+      list-style: none;
+      margin: 16px 0 20px;
+      padding: 0;
+    }
+    .pack-includes li {
+      padding: 6px 0 6px 26px;
+      position: relative;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .pack-includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+      font-weight: 700;
+    }
+    .pack-prices {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 18px 0 6px;
+    }
+    .price-old {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 16px;
+    }
+    .price-new {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: var(--purple-dark);
+      font-weight: 700;
+    }
+    .price-savings {
+      display: inline-block;
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+    }
+    .price-unit {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+
+    /* FORMULARIO */
+    .form-section { text-align: center; }
+    .form-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 36px 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      margin-top: 32px;
+      color: var(--text);
+    }
+    .form-placeholder {
+      min-height: 280px;
+      border: 2px dashed var(--purple);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--purple-dark);
+      background: var(--purple-soft);
+    }
+    .form-placeholder .label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .form-placeholder .big {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      letter-spacing: -0.3px;
+    }
+    .cupos {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 18px;
+    }
+
+    /* INFO CLINICA */
+    .clinic-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 38px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .clinic-logo {
+      max-width: 200px;
+      margin: 0 auto 22px;
+    }
+    .clinic-slogan {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--purple);
+      font-size: 20px;
+      margin: 6px 0 22px;
+    }
+    .clinic-card p { color: var(--muted); margin-bottom: 14px; }
+    .benefits-list {
+      text-align: left;
+      max-width: 480px;
+      margin: 24px auto;
+      list-style: none;
+      padding: 0;
+    }
+    .benefits-list li {
+      padding: 10px 0 10px 30px;
+      position: relative;
+      color: var(--text);
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+    .benefits-list li:last-child { border-bottom: none; }
+    .benefits-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      color: var(--purple);
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      max-width: 380px;
+      margin: 18px auto;
+      text-align: left;
+    }
+    .hours-grid dt { color: var(--purple-dark); font-weight: 600; font-size: 14px; }
+    .hours-grid dd { color: var(--muted); font-size: 14px; margin: 0; }
+    .clinic-address {
+      margin-top: 22px;
+      padding: 18px;
+      background: var(--purple-soft);
+      border-radius: 14px;
+      font-size: 14px;
+      color: var(--purple-dark);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a0d22;
+      color: #d4c5dd;
+      padding: 48px 20px 32px;
+      text-align: center;
+    }
+    footer img { max-width: 160px; margin: 0 auto 22px; opacity: 0.95; filter: brightness(1.15); }
+    footer .btn { background: var(--gold); margin: 18px 0 26px; }
+    .footer-legal {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #9b8aa6;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .cases-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero-body { padding: 26px 20px 30px; }
+      .pack-body { padding: 24px 20px 28px; }
+      .price-new { font-size: 30px; }
+      .topbar-inner { padding: 10px 16px; gap: 10px; }
+      .brand img { height: 32px; }
+      .btn { padding: 10px 14px; font-size: 12px; }
+    }
+    @media (max-width: 420px) {
+      .cases-grid { grid-template-columns: repeat(2, 1fr); }
+      .brand-text { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR FIJO -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand">
+        <img src="https://i.postimg.cc/jSJCYmcF/Logo-Caty.png" alt="Smile Clinic Dental Group" />
+        <span class="brand-text">
+          <strong>Smile Clinic</strong>
+          <span>Dental Group</span>
+        </span>
+      </a>
+      <a href="#formulario" class="btn btn-arrow">Agendar Valoración</a>
+    </div>
+  </header>
+
+  <!-- UBICACIÓN -->
+  <div class="location-bar" id="top">
+    <span class="pin">📍</span> Dra. Caty Avila &nbsp;·&nbsp; Camino Santa Mónica 8, local 205, Tlalnepantla, CDMX
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-photo">
+          <span class="placeholder-label">foto</span>
+        </div>
+        <div class="hero-body">
+          <h1>¿Vives en <em>CDMX</em> y buscas mejorar el diseño o la estética de tu sonrisa?</h1>
+          <p class="hero-sub">agenda <strong>HOY</strong> tu primera</p>
+          <div class="hero-promise">✨ Sesión de Valoración Personalizada</div>
+          <p style="color:var(--muted); font-size:14px; max-width:520px; margin: 0 auto 4px;">Sin desgaste, sin fracturas y sin cambios de color.</p>
+          <div class="hero-offer">
+            <strong>UN 18% DCTO</strong>
+            PARA LAS CARILLAS DE MEJOR CALIDAD EN EL MERCADO
+          </div>
+          <a href="#formulario" class="btn btn-arrow btn-full">Agendar Mi Valoración</a>
+          <p style="font-size:12px;color:var(--muted);margin-top:14px;">Sin compromiso · Cupos limitados por mes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPUESTA DE VALOR -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="value-card">
+        <p>Transforma tu sonrisa con <strong>Carillas de Porcelana E-MAX</strong> con <strong>Flujo Digital</strong> y <strong>Escáner Intraoral 3D</strong>. Obtén resultados <strong>naturales y duraderos</strong>, en sólo <strong>2 sesiones</strong>.</p>
+        <a href="#oferta" class="value-cta">Desliza al Paso 3 y conoce la oferta ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO 1 - CASOS DE EXITO -->
+  <section>
+    <div class="container center">
+      <span class="step-num">— Paso 1 —</span>
+      <h2>conoce algunos <em>Casos de éxito</em></h2>
+      <p style="color:var(--muted); max-width:560px; margin: 14px auto 0;">de personas como tú, que anhelaban mejorar su sonrisa con la atención de una especialista con más de 20 años de trayectoria en CDMX.</p>
+      <div class="cases-grid">
+        <!-- 20 placeholders de antes/después -->
+        <div class="case-cell">caso 1</div>
+        <div class="case-cell">caso 2</div>
+        <div class="case-cell">caso 3</div>
+        <div class="case-cell">caso 4</div>
+        <div class="case-cell">caso 5</div>
+        <div class="case-cell">caso 6</div>
+        <div class="case-cell">caso 7</div>
+        <div class="case-cell">caso 8</div>
+        <div class="case-cell">caso 9</div>
+        <div class="case-cell">caso 10</div>
+        <div class="case-cell">caso 11</div>
+        <div class="case-cell">caso 12</div>
+        <div class="case-cell">caso 13</div>
+        <div class="case-cell">caso 14</div>
+        <div class="case-cell">caso 15</div>
+        <div class="case-cell">caso 16</div>
+        <div class="case-cell">caso 17</div>
+        <div class="case-cell">caso 18</div>
+        <div class="case-cell">caso 19</div>
+        <div class="case-cell">caso 20</div>
+      </div>
+      <p class="disclaimer">*Los resultados varían en cada paciente.</p>
+    </div>
+  </section>
+
+  <!-- PASO 2 - VIDEO / METODO -->
+  <section class="section-soft">
+    <div class="container center">
+      <span class="step-num">— Paso 2 —</span>
+      <h2>mira el video y conoce <em>nuestro método</em></h2>
+      <div class="video-card">
+        <div class="play-circle"></div>
+        <span class="placeholder-label">video</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO 3 - OFERTA -->
+  <section id="oferta">
+    <div class="container">
+      <div class="packs-intro">
+        <span class="step-num">— Paso 3 —</span>
+        <h2>conoce nuestra <em>Oferta de Lanzamiento</em></h2>
+        <p style="color:var(--muted); margin-top:12px;">Dos protocolos diseñados personalmente por la Dra. Caty. Ambos incluyen diseño de sonrisa digital, análisis facial, blanqueamiento, limpieza y fotografía clínica.</p>
+      </div>
+
+      <!-- PACK 1 - DESTACADO -->
+      <article class="pack-card featured">
+        <span class="pack-badge">⭐ Más elegido</span>
+        <div class="pack-photo">
+          <span class="placeholder-label">foto del pack</span>
+        </div>
+        <div class="pack-body">
+          <p class="pack-eyebrow">Carilla Cerámica E-MAX</p>
+          <h3 class="pack-title serif">Smile Glow Up Experience</h3>
+          <ul class="pack-includes">
+            <li>6 carillas de porcelana E-MAX</li>
+            <li>Laboratorio Dental propio</li>
+            <li>Diseño Digital de Sonrisa</li>
+            <li>Cementación de Carillas en sesión premium</li>
+            <li>Análisis facial + blanqueamiento (50% off)</li>
+            <li>Limpieza completa + fotografía clínica</li>
+          </ul>
+          <div class="pack-prices">
+            <span class="price-old">$60,100</span>
+            <span class="price-new">$49,500</span>
+            <span class="price-savings">Ahorras $10,600</span>
+          </div>
+          <p class="price-unit">Precio total del protocolo · 6 carillas</p>
+          <a href="#formulario" class="btn btn-arrow btn-full">Agendar Valoración Gratis</a>
+        </div>
+      </article>
+
+      <!-- PACK 2 -->
+      <article class="pack-card">
+        <div class="pack-photo">
+          <span class="placeholder-label">foto del pack</span>
+        </div>
+        <div class="pack-body">
+          <p class="pack-eyebrow">Carillas de Resina Inyectada</p>
+          <h3 class="pack-title serif">Smile Glow Express Experience</h3>
+          <ul class="pack-includes">
+            <li>6 carillas de resina inyectada</li>
+            <li>Diseño Digital de Sonrisa</li>
+            <li>Cementación en sesión premium</li>
+            <li>Análisis facial + blanqueamiento (50% off)</li>
+            <li>Limpieza completa + fotografía clínica</li>
+          </ul>
+          <div class="pack-prices">
+            <span class="price-old">$34,800</span>
+            <span class="price-new">$28,500</span>
+            <span class="price-savings">Ahorras $6,300</span>
+          </div>
+          <p class="price-unit">Precio total del protocolo · 6 carillas</p>
+          <a href="#formulario" class="btn btn-arrow btn-full">Agendar Valoración Gratis</a>
+        </div>
+      </article>
+
+      <p class="disclaimer">Promoción vigente este mes. Cupos limitados por agenda de la Dra. Caty.</p>
+    </div>
+  </section>
+
+  <!-- PASO 4 - FORMULARIO -->
+  <section class="section-purple form-section" id="formulario">
+    <div class="container">
+      <span class="step-num">— Paso 4 —</span>
+      <h2>RESERVA tu <em>Sesión de Valoración</em></h2>
+      <p style="opacity:0.9; max-width:520px; margin: 14px auto 0;">Completa tus datos y la Dra. Caty te contacta personalmente para coordinar tu cita gratuita.</p>
+      <div class="cupos">⚠ Solo 5 cupos disponibles este mes</div>
+
+      <!-- PLACEHOLDER FORMULARIO -->
+      <div class="form-card">
+        <div class="form-placeholder">
+          <span class="label">Espacio reservado</span>
+          <span class="big serif">formulario</span>
+          <span style="font-size:13px; color:var(--muted); max-width:280px; text-align:center;">Aquí se insertará el embed del formulario de captura.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO CLINICA -->
+  <section>
+    <div class="container">
+      <div class="clinic-card">
+        <img class="clinic-logo" src="https://i.postimg.cc/jSJCYmcF/Logo-Caty.png" alt="Smile Clinic Dental Group" />
+        <h2 class="serif">Smile Clinic Dental Group</h2>
+        <p class="clinic-slogan">"Tu camino a una sonrisa estética y duradera"</p>
+        <p>En Smile Clinic somos especialistas en <strong style="color:var(--purple-dark)">Diseño de Sonrisa y Estética Dental</strong>. La Dra. Caty Avila Salazar te acompaña personalmente desde la valoración hasta el resultado final, con más de 20 años de trayectoria y formación en UNITEC y la ULA.</p>
+
+        <ul class="benefits-list">
+          <li>Evaluación completa de boca, encías y armonía facial</li>
+          <li>Detalle de todas las etapas del tratamiento</li>
+          <li>Presupuesto claro del plan personalizado</li>
+          <li>Protocolos con materiales premium E-MAX</li>
+          <li>Atención directa por la Dra. Caty Avila</li>
+        </ul>
+
+        <h4 class="serif" style="color:var(--purple-dark); margin-top:24px; font-size:18px;">Horarios</h4>
+        <dl class="hours-grid">
+          <dt>Lunes a Viernes</dt><dd>9:00 a 19:00 hrs</dd>
+          <dt>Sábado</dt><dd>9:00 a 14:00 hrs</dd>
+        </dl>
+
+        <div class="clinic-address">
+          📍 Camino Santa Mónica 8, local 205<br/>
+          Tlalnepantla, 54050 Ciudad de México
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="https://i.postimg.cc/jSJCYmcF/Logo-Caty.png" alt="Smile Clinic" />
+    <div class="container">
+      <a href="#formulario" class="btn btn-arrow btn-full">Quiero Mi Sesión de Valoración</a>
+      <p class="footer-legal">
+        © 2026 Dra. Caty Avila Salazar<br/>
+        Cédula Profesional: 8002066<br/>
+        Aviso de Publicidad: 2315142002A00017<br/>
+        Smile Clinic Dental Group · Tlalnepantla, CDMX
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
