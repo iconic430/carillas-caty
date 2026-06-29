@@ -517,6 +517,19 @@
       font-size: 14px;
       color: var(--purple-dark);
     }
+    .map-wrap { margin-top: 8px; }
+    .map-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--purple-dark);
+      text-decoration: none;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 3px;
+    }
 
     /* FOOTER */
     footer {
@@ -578,8 +591,7 @@
   <section class="hero">
     <div class="container">
       <div class="hero-card">
-        <div class="hero-photo">
-          <span class="placeholder-label">foto</span>
+        <div class="hero-photo" style="background-image:url('https://i.postimg.cc/rFGdFnRf/caty.jpg'); background-size:cover; background-position:center top; border-bottom:none;">
         </div>
         <div class="hero-body">
           <h1>¿Vives en <em>CDMX</em> y buscas mejorar el diseño o la estética de tu sonrisa?</h1>
@@ -762,6 +774,22 @@
         <div class="clinic-address">
           📍 Camino Santa Mónica 8, local 205<br/>
           Tlalnepantla, 54050 Ciudad de México
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=19.5263699,-99.2263752&hl=es&z=16&output=embed"
+            width="100%"
+            height="320"
+            style="border:0; border-radius:14px; margin-top:18px; box-shadow:0 6px 20px rgba(108,52,131,0.12);"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+            title="Ubicación Smile Clinic Dental Group">
+          </iframe>
+          <a href="https://maps.app.goo.gl/EG7xt27tFdNrtaAo7" target="_blank" rel="noopener" class="map-link">
+            Abrir en Google Maps ↗
+          </a>
         </div>
       </div>
     </div>
