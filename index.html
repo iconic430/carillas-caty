@@ -258,25 +258,72 @@
     .cases-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 32px;
+      gap: 14px;
+      margin-top: 28px;
     }
     .case-cell {
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #f5e9f7, #ead7f0);
+      position: relative;
+      aspect-ratio: 3/4;
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f5e9f7, #ead7f0);
+      box-shadow: 0 4px 14px rgba(108, 52, 131, 0.10);
+    }
+    .case-cell img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.7s ease;
+    }
+    .case-cell .case-despues { opacity: 0; }
+    .cases-grid.show-despues .case-cell .case-antes { opacity: 0; }
+    .cases-grid.show-despues .case-cell .case-despues { opacity: 1; }
+    .case-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(255,255,255,0.95);
       color: var(--purple-dark);
-      font-size: 10px;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      font-weight: 600;
-      border: 1px dashed rgba(108, 52, 131, 0.3);
-      text-align: center;
-      padding: 6px;
+      z-index: 3;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
+    .cases-grid.show-despues .case-tag.tag-antes { display: none; }
+    .case-tag.tag-despues { display: none; background: var(--gold); color: #fff; }
+    .cases-grid.show-despues .case-tag.tag-despues { display: block; }
+    .case-name {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      color: #fff;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
+      font-size: 11px;
+      padding: 14px 8px 8px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      z-index: 2;
+      border-radius: 0 0 10px 10px;
+      font-weight: 600;
+    }
+    .cases-indicator {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 700;
+    }
+    .cases-indicator .state { color: var(--gold); }
     .disclaimer {
       text-align: center;
       font-size: 12px;
@@ -730,28 +777,58 @@
     <div class="container center">
       <h2><em>Casos de éxito</em></h2>
       <p style="color:var(--muted); max-width:560px; margin: 14px auto 0;">de personas como tú, que anhelaban mejorar su sonrisa con la atención de una especialista con más de 20 años de trayectoria en CDMX.</p>
-      <div class="cases-grid">
-        <div class="case-cell">caso 1</div>
-        <div class="case-cell">caso 2</div>
-        <div class="case-cell">caso 3</div>
-        <div class="case-cell">caso 4</div>
-        <div class="case-cell">caso 5</div>
-        <div class="case-cell">caso 6</div>
-        <div class="case-cell">caso 7</div>
-        <div class="case-cell">caso 8</div>
-        <div class="case-cell">caso 9</div>
-        <div class="case-cell">caso 10</div>
-        <div class="case-cell">caso 11</div>
-        <div class="case-cell">caso 12</div>
-        <div class="case-cell">caso 13</div>
-        <div class="case-cell">caso 14</div>
-        <div class="case-cell">caso 15</div>
-        <div class="case-cell">caso 16</div>
-        <div class="case-cell">caso 17</div>
-        <div class="case-cell">caso 18</div>
-        <div class="case-cell">caso 19</div>
-        <div class="case-cell">caso 20</div>
+      <div class="cases-grid" id="casesGrid">
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/mDMYMFyC/anteslizmendez.png"    alt="Liz Méndez — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/ZY8P5pqN/despueslizmendez.png" alt="Liz Méndez — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Liz Méndez</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/mDMYMFyP/anteschristianterron.png"    alt="Christian Terrón — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/ZnSrLKwg/despueschristianterron.png" alt="Christian Terrón — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Christian Terrón</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/Qt5Q5WJp/antesdanysandra.png"    alt="Dany Sandra — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/fyfYqnFM/despuesdanysandra.png" alt="Dany Sandra — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Dany Sandra</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/9MTdTqYd/antesjesusmariana.png"    alt="Jesús Mariana — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/MHm1324p/despuesjesusmariana.png" alt="Jesús Mariana — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Jesús Mariana</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/PxZWZ8QZ/antesjulietacastillo.png"    alt="Julieta Castillo — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/prJKcb7T/despuesjulietacastillo.png" alt="Julieta Castillo — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Julieta Castillo</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/yxHFTYL9/antesmarianorivera.png"    alt="Mariano Rivera — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/gcVy280s/despuesmarianorivera.png" alt="Mariano Rivera — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Mariano Rivera</span>
+        </div>
+        <div class="case-cell">
+          <img class="case-antes"   src="https://i.postimg.cc/rskS9Ffn/antespatriciadavo.png"    alt="Patricia Davo — Antes" loading="lazy" />
+          <img class="case-despues" src="https://i.postimg.cc/Y26NCYSz/despuespatriciadavo.png" alt="Patricia Davo — Después" loading="lazy" />
+          <span class="case-tag tag-antes">Antes</span>
+          <span class="case-tag tag-despues">Después</span>
+          <span class="case-name">Patricia Davo</span>
+        </div>
       </div>
+      <p class="cases-indicator">Mostrando: <span class="state" id="casesState">Antes</span></p>
       <p class="disclaimer">*Los resultados varían en cada paciente.</p>
     </div>
   </section>
@@ -928,6 +1005,19 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    // Sincroniza el swap antes/después de todos los casos cada 4 segundos
+    (function() {
+      const grid = document.getElementById('casesGrid');
+      const state = document.getElementById('casesState');
+      if (!grid) return;
+      setInterval(function() {
+        grid.classList.toggle('show-despues');
+        if (state) state.textContent = grid.classList.contains('show-despues') ? 'Después' : 'Antes';
+      }, 4000);
+    })();
+  </script>
 
 </body>
 </html>
