@@ -257,13 +257,18 @@
     /* CASOS DE EXITO */
     .cases-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
       margin-top: 28px;
+    }
+    .cases-grid .case-cell:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 480px;
+      margin: 0 auto;
     }
     .case-cell {
       position: relative;
-      aspect-ratio: 3/4;
+      aspect-ratio: 16/9;
       border-radius: 14px;
       overflow: hidden;
       background: linear-gradient(135deg, #f5e9f7, #ead7f0);
@@ -711,7 +716,8 @@
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      .cases-grid { grid-template-columns: repeat(3, 1fr); }
+      .cases-grid { grid-template-columns: 1fr; }
+      .cases-grid .case-cell:last-child:nth-child(odd) { max-width: none; }
       .hero-body { padding: 26px 20px 30px; }
       .pack-body { padding: 24px 20px 28px; }
       .price-new { font-size: 30px; }
@@ -720,7 +726,6 @@
       .btn { padding: 10px 14px; font-size: 12px; }
     }
     @media (max-width: 420px) {
-      .cases-grid { grid-template-columns: repeat(2, 1fr); }
       .brand-text { display: none; }
     }
   </style>
